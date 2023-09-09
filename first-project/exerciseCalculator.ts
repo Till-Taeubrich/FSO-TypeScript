@@ -1,3 +1,5 @@
+import handleCLInput from "./utils/groupedUtils/handleCLInput";
+
 interface exercisesResult {
   numberOfDays: number;
   trainingDays: number;
@@ -8,7 +10,10 @@ interface exercisesResult {
   average: number
 }
 
-const calculateExercises = (weeklyHours:number[], target:number):exercisesResult => {
+const calculateExercises = (hours:number[]):exercisesResult => {
+  const target = hours[0]
+  const weeklyHours = hours.slice(1)
+
   const numberOfDays = weeklyHours.length
 
   const hourGoal = numberOfDays * target
@@ -50,4 +55,4 @@ const calculateExercises = (weeklyHours:number[], target:number):exercisesResult
   }
 }
 
-console.log(calculateExercises([3, 0, 2, 4.5, 0, 3, 1], 2))
+console.log(calculateExercises(handleCLInput()))

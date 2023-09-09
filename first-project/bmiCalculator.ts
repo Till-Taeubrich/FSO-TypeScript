@@ -1,3 +1,7 @@
+import handleCLInput from "./utils/groupedUtils/handleCLInput"
+
+const cLArguments = handleCLInput()
+
 const calculateBmi = (height:number, weight:number) => {
   const heightInMeter = height / 100
   const squaredHeight = heightInMeter * heightInMeter 
@@ -23,4 +27,4 @@ const calculateBmi = (height:number, weight:number) => {
   }
 }
 
-console.log(calculateBmi(180, 74))
+console.log(calculateBmi(cLArguments[0], cLArguments[1]))
