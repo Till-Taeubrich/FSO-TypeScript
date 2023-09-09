@@ -30,3 +30,5 @@ const calculateBmi = (height:number, weight:number) => {
 }
 
 console.log(calculateBmi(cLArguments[0], cLArguments[1]))
+
+export default calculateBmi
