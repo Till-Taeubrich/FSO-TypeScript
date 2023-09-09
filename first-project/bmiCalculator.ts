@@ -24,6 +24,8 @@ const calculateBmi = (height:number, weight:number) => {
       return 'Obese (Class II)'
     case (BMI >= 40.0):
       return 'Obese (Class III)'
+    default:
+      return
   }
 }
 

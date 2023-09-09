@@ -37,6 +37,7 @@ const calculateExercises = (hours:number[]):exercisesResult => {
         ratingDescription: 'Exercised not enough'
       }
     }
+    return
   }
 
   const trainingDays = weeklyHours.filter(num => num !== 0).length
@@ -48,8 +49,8 @@ const calculateExercises = (hours:number[]):exercisesResult => {
     numberOfDays,
     trainingDays,
     success,
-    rating: ratingResult.rating,
-    ratingDescription: ratingResult.ratingDescription,
+    rating: ratingResult!.rating,
+    ratingDescription: ratingResult!.ratingDescription,
     target,
     average
   }
