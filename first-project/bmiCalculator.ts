@@ -1,6 +1,6 @@
-import handleCLInput from "./utils/groupedUtils/handleCLInput"
+// import handleCLInput from "./utils/groupedUtils/handleCLInput"
 
-const cLArguments = handleCLInput()
+// const cLArguments = handleCLInput()
 
 const calculateBmi = (height:number, weight:number) => {
   const heightInMeter = height / 100
@@ -29,6 +29,6 @@ const calculateBmi = (height:number, weight:number) => {
   }
 }
 
-console.log(calculateBmi(cLArguments[0], cLArguments[1]))
+// console.log(calculateBmi(cLArguments[0], cLArguments[1]))
 
 export default calculateBmi

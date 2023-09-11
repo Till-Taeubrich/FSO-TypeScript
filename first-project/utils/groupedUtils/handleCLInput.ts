@@ -1,12 +1,12 @@
 import filterCLArgs from "../filterCLArgs"
-import checkNumbers from "../checkNumber"
+import { checkNumberArray } from "../checkDatatype"
 import turnToNumber from "../turnToNumber"
 
 const handleCLInput = () => {
   const commandLineArguments = filterCLArgs(process.argv)
   const convertedArray = turnToNumber(commandLineArguments)
 
-  checkNumbers(convertedArray)
+  checkNumberArray(convertedArray)
 
   return convertedArray
 }

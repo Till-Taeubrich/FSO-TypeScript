@@ -1,4 +1,4 @@
-import handleCLInput from "./utils/groupedUtils/handleCLInput";
+// import handleCLInput from "./utils/groupedUtils/handleCLInput";
 
 interface exercisesResult {
   numberOfDays: number;
@@ -12,12 +12,12 @@ interface exercisesResult {
 
 const calculateExercises = (hours:number[]):exercisesResult => {
   const target = hours[0]
-  const weeklyHours = hours.slice(1)
+  const totalHours = hours.slice(1)
 
-  const numberOfDays = weeklyHours.length
+  const numberOfDays = totalHours.length
 
   const hourGoal = numberOfDays * target
-  const actualHours = weeklyHours.reduce((a, b) => a + b)
+  const actualHours = totalHours.reduce((a, b) => a + b)
   const calculateRating = () => {
     if (hourGoal < actualHours) {
       return {
@@ -40,7 +40,7 @@ const calculateExercises = (hours:number[]):exercisesResult => {
     return
   }
 
-  const trainingDays = weeklyHours.filter(num => num !== 0).length
+  const trainingDays = totalHours.filter(num => num !== 0).length
   const success = actualHours >= hourGoal
   const ratingResult = calculateRating()
   const average = actualHours / numberOfDays
@@ -56,4 +56,6 @@ const calculateExercises = (hours:number[]):exercisesResult => {
   }
 }
 
-console.log(calculateExercises(handleCLInput()))
+// console.log(calculateExercises(handleCLInput()))
+
+export default calculateExercises
