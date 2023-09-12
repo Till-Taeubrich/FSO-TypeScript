@@ -3,3 +3,14 @@ export interface diagnoseEntry {
   name: string,
   latin?: string
 }
+
+interface patientsEntry {
+  id: string
+  name: string,
+  dateOfBirth: string,
+  ssn: string,
+  gender: string,
+  occupation: string
+}
+
+export type patientsEntryNoSsn = Omit<patientsEntry, 'ssn'>
