@@ -4,7 +4,15 @@ export interface diagnoseEntry {
   latin?: string
 }
 
-interface patientsEntry {
+export interface newPatientEntry {
+  name: string,
+  dateOfBirth: string,
+  ssn: string,
+  gender: string,
+  occupation: string
+}
+
+export interface patientsEntry {
   id: string
   name: string,
   dateOfBirth: string,

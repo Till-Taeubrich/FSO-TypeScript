@@ -1,6 +1,6 @@
 import express from 'express';
 import getDiagnoses from './services/diagnoseService';
-import getPatientsEntries from './services/patientsService';
+import { getPatientsEntries, addPatient } from './services/patientsService';
 const app = express();
 import cors from 'cors';
 
@@ -22,6 +22,20 @@ app.get('/api/diagnoses', (_req, res) => {
 app.get('/api/patients', (_req, res) => {
   const patients = getPatientsEntries()
   res.send(patients)
+});
+
+app.post('/api/patients', (req, res) => {
+  const {name, dateOfBirth, ssn, gender, occupation } = req.body
+
+  const newPatient = addPatient({
+    name,
+    dateOfBirth,
+    ssn,
+    gender,
+    occupation
+  })
+
+  res.send(newPatient)
 });
 
 app.listen(PORT, () => {
