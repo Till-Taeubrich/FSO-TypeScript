@@ -21,4 +21,14 @@ export interface patientsEntry {
   occupation: string
 }
 
+enum Gender {
+  male = 'male',
+  female = 'female',
+  other = 'other'
+}
+
+export const isGender = (param: string): param is Gender => {
+  return Object.values(Gender).map(v => v.toString()).includes(param);
+};
+
 export type patientsEntryNoSsn = Omit<patientsEntry, 'ssn'>

@@ -1,5 +1,5 @@
 import patientsData from "../../data/patients";
-import { newPatientEntry, patientsEntry, patientsEntryNoSsn } from "../types";
+import { isGender, newPatientEntry, patientsEntry, patientsEntryNoSsn } from "../types";
 import { v1 as uuid } from 'uuid';
 
 const patients: patientsEntryNoSsn[] = patientsData
@@ -15,6 +15,10 @@ export const getPatientsEntries = (): patientsEntryNoSsn[] => {
 }
 
 export const addPatient = ( entry :newPatientEntry ): patientsEntry => {
+  if (!isGender(entry.gender)) {
+    throw new Error('Incorrect or missing gender: ' + entry.gender);
+  }
+
   const newPatientEntry = {
     id: uuid(),
     ...entry
