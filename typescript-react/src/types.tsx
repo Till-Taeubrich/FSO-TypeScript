@@ -1,17 +1,35 @@
+export interface CoursePartBase {
+  name: string;
+  exerciseCount: number;
+}
+
+interface CoursePartBasic extends CoursePartBase {
+  description: string;
+  kind: "basic"
+}
+
+interface CoursePartGroup extends CoursePartBase {
+  groupProjectCount: number;
+  kind: "group"
+}
+
+interface CoursePartBackground extends CoursePartBase {
+  description: string;
+  backgroundMaterial: string;
+  kind: "background"
+}
+
+export type CoursePart = CoursePartBasic | CoursePartGroup | CoursePartBackground;
+
 export interface HeaderProps {
 	text: string;
 }
 
-interface coursePart {
-	name: string
-	exerciseCount: number
+export interface TotalProps {
+	totalName: string;
+	arrayToCount: CoursePart[];
 }
 
 export interface ContentProps {
-	courseParts: coursePart[];
-}
-
-export interface TotalProps {
-	totalName: string;
-	arrayToCount: coursePart[];
+	courseParts: CoursePart[];
 }
