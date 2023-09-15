@@ -21,7 +21,12 @@ interface CoursePartBackground extends CoursePartDescription {
   kind: "background"
 }
 
-export type CoursePart = CoursePartBasic | CoursePartGroup | CoursePartBackground;
+interface CoursePartSpecial extends CoursePartDescription {
+  requirements: String[];
+  kind: 'special';
+}
+
+export type CoursePart = CoursePartBasic | CoursePartGroup | CoursePartBackground | CoursePartSpecial
 
 export interface HeaderProps {
 	text: string;
@@ -34,4 +39,8 @@ export interface TotalProps {
 
 export interface ContentProps {
 	courseParts: CoursePart[];
+}
+
+export interface PartProps {
+	part: CoursePart
 }

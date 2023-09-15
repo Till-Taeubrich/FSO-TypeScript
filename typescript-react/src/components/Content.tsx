@@ -1,13 +1,12 @@
 import { ContentProps } from "../types"
+import Part from "./Part"
 
-const CourseParts = ({ courseParts }: ContentProps) => (
+const Content = ({ courseParts }: ContentProps) => (
 	<>
 		{courseParts.map((part, i) => (
-			<p key={`part ${i}`}>
-				{part.name} {part.exerciseCount}
-			</p>
+			<Part part={part} key={i}/>
 		))}
 	</>
 )
 
-export default CourseParts
+export default Content 
