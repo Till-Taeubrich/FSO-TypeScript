@@ -3,6 +3,7 @@ import getDiagnoses from './services/diagnoseService';
 import { getPatientsEntries, addPatient } from './services/patientsService';
 const app = express();
 import cors from 'cors';
+import patients from '../data/patients';
 
 app.use(cors())
 app.use(express.json());
@@ -36,6 +37,12 @@ app.post('/api/patients', (req, res) => {
   })
 
   res.send(newPatient)
+});
+
+app.get('/api/patients/:id', (req, res) => {
+  const id = req.params.id
+  const patient = patients.find(patient => patient.id === id)
+  res.json(patient)
 });
 
 app.listen(PORT, () => {
