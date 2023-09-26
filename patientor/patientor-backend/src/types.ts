@@ -10,6 +10,10 @@ export interface newPatientEntry {
   ssn: string,
   gender: string,
   occupation: string
+  entries: Entry[]
+}
+
+export interface Entry {
 }
 
 export interface patientsEntry {
@@ -18,7 +22,8 @@ export interface patientsEntry {
   dateOfBirth: string,
   ssn: string,
   gender: string,
-  occupation: string
+  occupation: string,
+  entries: Entry[]
 }
 
 enum Gender {
@@ -32,3 +37,5 @@ export const isGender = (param: string): param is Gender => {
 };
 
 export type patientsEntryNoSsn = Omit<patientsEntry, 'ssn'>
+
+export type NonSensitivePatient = Omit<patientsEntry, 'ssn' | 'entries'>;

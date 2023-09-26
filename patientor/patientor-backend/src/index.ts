@@ -26,14 +26,15 @@ app.get('/api/patients', (_req, res) => {
 });
 
 app.post('/api/patients', (req, res) => {
-  const {name, dateOfBirth, ssn, gender, occupation } = req.body
+  const { name, dateOfBirth, ssn, gender, occupation } = req.body
 
   const newPatient = addPatient({
     name,
     dateOfBirth,
     ssn,
     gender,
-    occupation
+    occupation,
+    entries: req.body.entries || []
   })
 
   res.send(newPatient)
