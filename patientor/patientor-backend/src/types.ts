@@ -1,4 +1,4 @@
-export interface diagnoseEntry {
+export interface Diagnose {
   code: string
   name: string,
   latin?: string
@@ -41,7 +41,7 @@ interface BaseEntry {
   id: string;
   date: string;
   specialist: string;
-  diagnosisCodes?: Array<diagnoseEntry['code']>;
+  diagnosisCodes?: Array<Diagnose['code']>;
   description: string;
 }
 
